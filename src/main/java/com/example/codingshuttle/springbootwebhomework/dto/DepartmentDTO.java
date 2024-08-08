@@ -6,7 +6,7 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.PastOrPresent;
 import lombok.*;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -14,15 +14,15 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 
 public class DepartmentDTO {
-    private String id;
+    private Long id;
     @NotEmpty(message = "Required Field Empty : Title")
     private String title;
 
     @NotNull(message = "Required Field Missing: isActive")
     @JsonProperty("isActive")
-    private boolean isActive;
+    private Boolean isActive;
 
     @NotNull(message = "Required Field missing: Created At DateTime")
     @PastOrPresent(message = "The date can be either today's date or a date in the past")
-    private LocalDateTime createdAt;
+    private LocalDate createdAt;
 }
